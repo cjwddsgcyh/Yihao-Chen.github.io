@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Retrieve your password</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* Add your custom dialog styles here */
+    .custom-dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="heading">Student Affective Computing System</h1>
+    <h3 class="title">Retrieve your password</h3>
+  </header>
+  
+  <div class="container">
+
+    <!--upper button section-->
+    <div class="slider"></div>
+    <div class="btn">
+      <button class="login">Sign</button>
+      <button class="signup">Up</button>
+    </div>
+      
+    <!--Form section-->
+    <div class="form-section">
+
+      <!--signup form-->
+      <div class="signup-box">
+        <input type="text" class="name ele" placeholder="Enter your name">
+        <input type="email" class="email ele" placeholder="youremail@email.com">
+        <input type="password" class="password ele" placeholder="Username">
+        <input type="password" class="password ele" placeholder="Teacher Verification Codes">
+        <button class="clkbtn" id="submitBtn">Submit</button>
+      </div>
+
+    </div>
+    
+  </div>
+
+  <!-- Custom dialog script -->
+  <script>
+    // Get the submit button element
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Add click event listener to the submit button
+    submitBtn.addEventListener('click', function () {
+      // Display the custom dialog
+      const dialog = document.createElement('div');
+      dialog.classList.add('custom-dialog');
+      dialog.innerHTML = `
+        <p>Your request has been submitted, the background staff will send the new password to your mailbox after review, please wait patiently.</p>
+        <button id="dialogOkBtn">Confirm</button>
+      `;
+      document.body.appendChild(dialog);
+
+      // Add click event listener to the dialog's OK button
+      const dialogOkBtn = document.getElementById('dialogOkBtn');
+      dialogOkBtn.addEventListener('click', function () {
+        // Remove the dialog when OK is clicked
+        document.body.removeChild(dialog);
+      });
+    });
+  </script>
+
+  <!-- Your existing script file -->
+  <script src="assets/js/script.js"></script>
+
+</body>
+</html>
